@@ -29,6 +29,6 @@ import CoreData
 extension TestEntity {
 
     @NSManaged var intField: NSNumber?
+    @NSManaged var sectionField: String?
     @NSManaged var stringField: String?
-
 }

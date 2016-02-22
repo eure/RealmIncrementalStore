@@ -34,10 +34,15 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
         self.fetchedResultsController.delegate = self
         try! self.fetchedResultsController.performFetch()
     }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return self.fetchedResultsController.sections?.count ?? 0
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.fetchedResultsController.sections?.first?.numberOfObjects ?? 0
+        return self.fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -48,6 +53,11 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
         cell.detailTextLabel?.text = testEntity.intField.flatMap { "\($0)" }
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return self.fetchedResultsController.sections?[section].name
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -66,6 +76,7 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
                 }
                 object.stringField = "random_\(arc4random_uniform(100))"
                 object.intField = NSNumber(unsignedInt: arc4random_uniform(10000))
+                object.sectionField = "Section \(arc4random_uniform(5))"
             }
         )
     }
@@ -112,11 +123,16 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
             
         case .Update:
-            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
-            tableView.insertRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
+            if let cell = tableView.cellForRowAtIndexPath(indexPath!) {
+                
+                let testEntity = self.fetchedResultsController.objectAtIndexPath(indexPath!) as! TestEntity
+                cell.textLabel?.text = testEntity.stringField
+                cell.detailTextLabel?.text = testEntity.intField.flatMap { "\($0)" }
+            }
             
         case .Move:
-            tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
         }
     }
     
@@ -151,6 +167,7 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
                 )
                 object.stringField = "random_\(arc4random_uniform(100))"
                 object.intField = NSNumber(unsignedInt: arc4random_uniform(10000))
+                object.sectionField = "Section \(arc4random_uniform(5))"
             }
         )
     }
@@ -160,12 +177,15 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
         let context = NSManagedObjectContext.mainContext
         
         let request = NSFetchRequest(entityName: "TestEntity")
-        request.sortDescriptors = [NSSortDescriptor(key: "stringField", ascending: true)]
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "sectionField", ascending: true),
+            NSSortDescriptor(key: "stringField", ascending: true)
+        ]
         
         return NSFetchedResultsController(
             fetchRequest: request,
             managedObjectContext: context,
-            sectionNameKeyPath: nil,
+            sectionNameKeyPath: "sectionField",
             cacheName: nil
         )
     }()
