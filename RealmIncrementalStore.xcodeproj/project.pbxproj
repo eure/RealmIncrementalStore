@@ -7,9 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B53232741C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53232731C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift */; };
+		B53232761C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53232751C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift */; };
+		B53232781C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53232771C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift */; };
+		B53381CE1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381CD1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift */; };
+		B53381D01C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381CF1C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift */; };
 		B5838DC41C75A6B900C781BA /* RealmIncrementalStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B5838DC31C75A6B900C781BA /* RealmIncrementalStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5838DCB1C75A6B900C781BA /* RealmIncrementalStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5838DC01C75A6B900C781BA /* RealmIncrementalStore.framework */; };
 		B5838DD01C75A6B900C781BA /* RealmIncrementalStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838DCF1C75A6B900C781BA /* RealmIncrementalStoreTests.swift */; };
+		B5838DDB1C75A6F200C781BA /* RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838DDA1C75A6F200C781BA /* RealmIncrementalStore.swift */; };
+		B5838DDD1C75A71900C781BA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5838DDC1C75A71900C781BA /* CoreData.framework */; };
+		B5838DDF1C75A72000C781BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5838DDE1C75A72000C781BA /* Foundation.framework */; };
+		B5838DE21C75AA2200C781BA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5838DE11C75AA2200C781BA /* Realm.framework */; };
+		B5838DE41C75AA2F00C781BA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B5838DE31C75AA2F00C781BA /* libc++.tbd */; };
+		B5838DE61C75AA9000C781BA /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838DE51C75AA9000C781BA /* RLMSupport.swift */; };
+		B5838E0D1C75BAE000C781BA /* RealmIncrementalStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838E0C1C75BAE000C781BA /* RealmIncrementalStoreError.swift */; };
+		B5838E0F1C75C9D100C781BA /* RealmIncrementalStoreMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838E0E1C75C9D100C781BA /* RealmIncrementalStoreMetadata.swift */; };
+		B5838E1F1C75DC3800C781BA /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5838DE11C75AA2200C781BA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,13 +36,39 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B5838E1E1C75DC2500C781BA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B5838E1F1C75DC3800C781BA /* Realm.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B53232731C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPredicate+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
+		B53232751C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSExpression+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
+		B53232771C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
+		B53381CD1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
+		B53381CF1C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B5838DC01C75A6B900C781BA /* RealmIncrementalStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RealmIncrementalStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5838DC31C75A6B900C781BA /* RealmIncrementalStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealmIncrementalStore.h; sourceTree = "<group>"; };
 		B5838DC51C75A6B900C781BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5838DCA1C75A6B900C781BA /* RealmIncrementalStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealmIncrementalStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5838DCF1C75A6B900C781BA /* RealmIncrementalStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmIncrementalStoreTests.swift; sourceTree = "<group>"; };
 		B5838DD11C75A6B900C781BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5838DDA1C75A6F200C781BA /* RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmIncrementalStore.swift; sourceTree = "<group>"; };
+		B5838DDC1C75A71900C781BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B5838DDE1C75A72000C781BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B5838DE11C75AA2200C781BA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		B5838DE31C75AA2F00C781BA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		B5838DE51C75AA9000C781BA /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
+		B5838E0C1C75BAE000C781BA /* RealmIncrementalStoreError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmIncrementalStoreError.swift; sourceTree = "<group>"; };
+		B5838E0E1C75C9D100C781BA /* RealmIncrementalStoreMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmIncrementalStoreMetadata.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +76,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5838DE41C75AA2F00C781BA /* libc++.tbd in Frameworks */,
+				B5838DE21C75AA2200C781BA /* Realm.framework in Frameworks */,
+				B5838DDF1C75A72000C781BA /* Foundation.framework in Frameworks */,
+				B5838DDD1C75A71900C781BA /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +97,7 @@
 		B5838DB61C75A6B900C781BA = {
 			isa = PBXGroup;
 			children = (
+				B5838DE01C75A72600C781BA /* Frameworks */,
 				B5838DC21C75A6B900C781BA /* RealmIncrementalStore */,
 				B5838DCE1C75A6B900C781BA /* RealmIncrementalStoreTests */,
 				B5838DC11C75A6B900C781BA /* Products */,
@@ -71,8 +116,12 @@
 		B5838DC21C75A6B900C781BA /* RealmIncrementalStore */ = {
 			isa = PBXGroup;
 			children = (
-				B5838DC31C75A6B900C781BA /* RealmIncrementalStore.h */,
 				B5838DC51C75A6B900C781BA /* Info.plist */,
+				B5838DC31C75A6B900C781BA /* RealmIncrementalStore.h */,
+				B5838DDA1C75A6F200C781BA /* RealmIncrementalStore.swift */,
+				B5838E0C1C75BAE000C781BA /* RealmIncrementalStoreError.swift */,
+				B5838E0B1C75B1D100C781BA /* Internal */,
+				B5838E0A1C75B1C800C781BA /* Realm */,
 			);
 			path = RealmIncrementalStore;
 			sourceTree = "<group>";
@@ -84,6 +133,38 @@
 				B5838DD11C75A6B900C781BA /* Info.plist */,
 			);
 			path = RealmIncrementalStoreTests;
+			sourceTree = "<group>";
+		};
+		B5838DE01C75A72600C781BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5838DDC1C75A71900C781BA /* CoreData.framework */,
+				B5838DDE1C75A72000C781BA /* Foundation.framework */,
+				B5838DE31C75AA2F00C781BA /* libc++.tbd */,
+				B5838DE11C75AA2200C781BA /* Realm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5838E0A1C75B1C800C781BA /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				B5838DE51C75AA9000C781BA /* RLMSupport.swift */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
+		B5838E0B1C75B1D100C781BA /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				B5838E0E1C75C9D100C781BA /* RealmIncrementalStoreMetadata.swift */,
+				B53381CD1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift */,
+				B53381CF1C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift */,
+				B53232731C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift */,
+				B53232751C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift */,
+				B53232771C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift */,
+			);
+			name = Internal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +189,7 @@
 				B5838DBC1C75A6B900C781BA /* Frameworks */,
 				B5838DBD1C75A6B900C781BA /* Headers */,
 				B5838DBE1C75A6B900C781BA /* Resources */,
+				B5838E1E1C75DC2500C781BA /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -194,6 +276,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53232781C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift in Sources */,
+				B53381D01C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift in Sources */,
+				B5838DDB1C75A6F200C781BA /* RealmIncrementalStore.swift in Sources */,
+				B5838DE61C75AA9000C781BA /* RLMSupport.swift in Sources */,
+				B5838E0D1C75BAE000C781BA /* RealmIncrementalStoreError.swift in Sources */,
+				B53381CE1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift in Sources */,
+				B53232741C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift in Sources */,
+				B5838E0F1C75C9D100C781BA /* RealmIncrementalStoreMetadata.swift in Sources */,
+				B53232761C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -295,7 +386,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -308,26 +399,37 @@
 		B5838DD51C75A6B900C781BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/**",
+				);
 				INFOPLIST_FILE = RealmIncrementalStore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnestropia.RealmIncrementalStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B5838DD61C75A6B900C781BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/**",
+				);
 				INFOPLIST_FILE = RealmIncrementalStore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -376,6 +478,7 @@
 				B5838DD61C75A6B900C781BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5838DD71C75A6B900C781BA /* Build configuration list for PBXNativeTarget "RealmIncrementalStoreTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +487,7 @@
 				B5838DD91C75A6B900C781BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
