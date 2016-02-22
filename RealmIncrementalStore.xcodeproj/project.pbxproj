@@ -53,6 +53,7 @@
 		B53232731C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPredicate+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B53232751C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSExpression+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B53232771C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
+		B532327B1C7B24EA00E9D3C7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B53381CD1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B53381CF1C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B5838DC01C75A6B900C781BA /* RealmIncrementalStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RealmIncrementalStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				B5838DC51C75A6B900C781BA /* Info.plist */,
+				B532327B1C7B24EA00E9D3C7 /* LICENSE */,
 				B5838DC31C75A6B900C781BA /* RealmIncrementalStore.h */,
 				B5838DDA1C75A6F200C781BA /* RealmIncrementalStore.swift */,
 				B5838E0C1C75BAE000C781BA /* RealmIncrementalStoreError.swift */,
@@ -226,7 +228,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "John Estropia";
+				ORGANIZATIONNAME = "eureka, Inc.";
 				TargetAttributes = {
 					B5838DBF1C75A6B900C781BA = {
 						CreatedOnToolsVersion = 7.2.1;
