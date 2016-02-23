@@ -218,10 +218,18 @@ public final class RealmIncrementalStore: NSIncrementalStore {
         let entity = request.entity!
         let backingClass = entity.realmBackingClass
         let realm = self.rootRealm!
-        let results = backingClass.objectsInRealm(
+        var results = backingClass.objectsInRealm(
             realm,
             withPredicate: request.predicate?.realmPredicate()
         )
+        if let sortDescriptors = request.sortDescriptors {
+            
+            results = results.sortedResultsUsingDescriptors(
+                sortDescriptors.map {
+                    RLMSortDescriptor(property: $0.key!, ascending: $0.ascending)
+                }
+            )
+        }
         
         switch request.resultType {
             
@@ -231,7 +239,7 @@ public final class RealmIncrementalStore: NSIncrementalStore {
                 let resourceID = object.realmResourceID
                 let objectID = self.newObjectIDForEntity(entity, referenceObject: resourceID)
                 return context?.objectWithID(objectID)
-            } // TODO: sort
+            }
             
         case NSFetchRequestResultType.ManagedObjectIDResultType:
             return results.flatMap { object -> AnyObject? in

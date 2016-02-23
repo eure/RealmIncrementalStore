@@ -29,6 +29,10 @@ import CoreData
 
 class TestEntity: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
-
+    func randomize() {
+        
+        self.stringField = "random item \(arc4random_uniform(100))"
+        self.intField = NSNumber(unsignedInt: arc4random_uniform(10000))
+        self.sectionField = "Section \(arc4random_uniform(5))"
+    }
 }

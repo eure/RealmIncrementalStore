@@ -74,9 +74,7 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
                         
                         return
                 }
-                object.stringField = "random_\(arc4random_uniform(100))"
-                object.intField = NSNumber(unsignedInt: arc4random_uniform(10000))
-                object.sectionField = "Section \(arc4random_uniform(5))"
+                object.randomize()
             }
         )
     }
@@ -165,9 +163,7 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
                     entity: entities["TestEntity"]!,
                     insertIntoManagedObjectContext: context
                 )
-                object.stringField = "random_\(arc4random_uniform(100))"
-                object.intField = NSNumber(unsignedInt: arc4random_uniform(10000))
-                object.sectionField = "Section \(arc4random_uniform(5))"
+                object.randomize()
             }
         )
     }

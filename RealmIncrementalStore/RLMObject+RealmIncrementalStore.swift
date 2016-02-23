@@ -93,7 +93,7 @@ internal extension RLMObject {
             }
             else {
                 
-                if let value = value {
+                if let _ = value {
                     
                     // TODO:
                 }

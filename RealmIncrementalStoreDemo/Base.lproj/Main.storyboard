@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--RealmIncrementalStore-->
         <scene sceneID="5L6-QQ-nah">
             <objects>
                 <tableViewController id="v6v-Qk-fTz" customClass="ViewController" customModule="RealmIncrementalStoreDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,8 +44,8 @@
                             <outlet property="delegate" destination="v6v-Qk-fTz" id="XBA-Lg-6nV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="FcF-eT-HzY">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="N2q-hf-5Yd">
+                    <navigationItem key="navigationItem" title="RealmIncrementalStore" prompt="＋=add, tap=edit, swipe=delete" id="FcF-eT-HzY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="N2q-hf-5Yd">
                             <connections>
                                 <action selector="addBarButtonTapped:" destination="v6v-Qk-fTz" id="DUS-cb-Rht"/>
                             </connections>
