@@ -27,11 +27,37 @@ import Foundation
 import CoreData
 import Realm
 
+
+// MARK: - NSEntityDescription
+
 internal extension NSEntityDescription {
     
     internal typealias RealmBackingType = (backingClass: RLMObject.Type, objectSchema: RLMObjectSchema)
     
-    internal var realmBackingType: RealmBackingType {
+    @nonobjc internal static let RISBackingClassKey = "_RISBackingClassKey"
+    @nonobjc internal static let RISObjectSchemaKey = "_RISObjectSchemaKey"
+    
+    @nonobjc internal var realmBackingClass: RLMObject.Type {
+        
+        if let userInfo = self.userInfo,
+            let backingClass = userInfo[NSEntityDescription.RISBackingClassKey] as? RLMObject.Type {
+                
+                return backingClass
+        }
+        return self.loadRealmBackingTypeIfNeeded().backingClass
+    }
+    
+    @nonobjc internal var realmObjectSchema: RLMObjectSchema {
+        
+        if let userInfo = self.userInfo,
+            let objectSchema = userInfo[NSEntityDescription.RISObjectSchemaKey] as? RLMObjectSchema {
+                
+                return objectSchema
+        }
+        return self.loadRealmBackingTypeIfNeeded().objectSchema
+    }
+    
+    @nonobjc internal func loadRealmBackingTypeIfNeeded() -> RealmBackingType {
         
         enum Static {
             
@@ -40,22 +66,24 @@ internal extension NSEntityDescription {
             static var classes = [NSData: RealmBackingType]()
         }
         
-        var backingClass: RealmBackingType?
+        var backingType: RealmBackingType?
         dispatch_barrier_sync(Static.safeQueue) {
             
             let versionHash = self.versionHash
             if let existingClass = Static.classes[versionHash] {
                 
-                backingClass = existingClass
+                backingType = existingClass
                 return
             }
             
-            let newClass: AnyClass = objc_allocateClassPair(
+            let backingClass: AnyClass = objc_allocateClassPair(
                 RLMObject.self,
-                RLMObject.IncrementalStoreBackingClassNameForEntity(self).UTF8String,
+                RLMObject.RISBackingClassNameForEntity(self).UTF8String,
                 0
             )
-            var defaultValues: [String: AnyObject] = [:]
+            var defaultValues: [String: AnyObject] = [
+                RLMObject.RISVersionProperty: 0
+            ]
             let properties = self.attributesByName.map { (attributeName, attributeDescription) -> (() -> RLMProperty) in
                 
                 let rawAttribute: NSString
@@ -124,9 +152,9 @@ internal extension NSEntityDescription {
                     fatalError()
                 }
                 
-                let selectorNames = self.synthesizePropertyWithName(
+                let selectorNames = NSEntityDescription.synthesizePropertyWithName(
                     attributeName,
-                    toBackingClass: newClass,
+                    toBackingClass: backingClass,
                     getter: getterConverter,
                     setter: setterConverter
                 )
@@ -137,7 +165,7 @@ internal extension NSEntityDescription {
                 ]
                 rawAttributes.withUnsafeBufferPointer { buffer in
                     
-                    guard class_addProperty(newClass, attributeName, buffer.baseAddress, UInt32(buffer.count)) else {
+                    guard class_addProperty(backingClass, attributeName, buffer.baseAddress, UInt32(buffer.count)) else {
                         
                         fatalError("Could not dynamically add property \"\(attributeName)\" to class \"\(backingClass)\"")
                     }
@@ -172,11 +200,12 @@ internal extension NSEntityDescription {
                 }
             }
             
-            self.synthesizePrimaryKeyToBackingClass(newClass)
+            NSEntityDescription.synthesizeResourceIDToBackingClass(backingClass)
+            NSEntityDescription.synthesizeVersionToBackingClass(backingClass)
             
-            let metaClass: AnyClass = object_getClass(newClass)
-            self.addGetterBlock(
-                { _, _ in RLMObject.IncrementalStoreResourceIDProperty },
+            let metaClass: AnyClass = object_getClass(backingClass)
+            NSEntityDescription.addGetterBlock(
+                { _, _ in RLMObject.RISResourceIDProperty },
                 methodName: "primaryKey",
                 toBackingClass: metaClass
             )
@@ -185,45 +214,70 @@ internal extension NSEntityDescription {
             
             if !defaultValues.isEmpty {
                 
-                self.addGetterBlock(
+                NSEntityDescription.addGetterBlock(
                     { _, _ in defaultValues },
                     methodName: "defaultPropertyValues",
                     toBackingClass: metaClass
                 )
             }
             
-            objc_registerClassPair(newClass)
+            objc_registerClassPair(backingClass)
             
-            let primaryKeyProperty = RLMProperty(
-                name: RLMObject.IncrementalStoreResourceIDProperty,
-                type: .String,
-                objectClassName: nil,
-                indexed: true,
-                optional: false
-            )
-            primaryKeyProperty.isPrimary = true
-            primaryKeyProperty.getterName = RLMObject.IncrementalStoreResourceIDProperty
-            primaryKeyProperty.getterSel = NSSelectorFromString(RLMObject.IncrementalStoreResourceIDProperty)
-            primaryKeyProperty.setterName = RLMObject.IncrementalStoreResourceIDSetter
-            primaryKeyProperty.setterSel = NSSelectorFromString(RLMObject.IncrementalStoreResourceIDSetter)
+            let resourceIDProperty: RLMProperty
+            let versionProperty: RLMProperty
+            do {
+                
+                resourceIDProperty = RLMProperty(
+                    name: RLMObject.RISResourceIDProperty,
+                    type: .String,
+                    objectClassName: nil,
+                    indexed: true,
+                    optional: false
+                )
+                resourceIDProperty.isPrimary = true
+                resourceIDProperty.getterName = RLMObject.RISResourceIDProperty
+                resourceIDProperty.getterSel = NSSelectorFromString(RLMObject.RISResourceIDProperty)
+                resourceIDProperty.setterName = RLMObject.RISResourceIDSetter
+                resourceIDProperty.setterSel = NSSelectorFromString(RLMObject.RISResourceIDSetter)
+            }
+            do {
+                
+                versionProperty = RLMProperty(
+                    name: RLMObject.RISVersionProperty,
+                    type: .Int,
+                    objectClassName: nil,
+                    indexed: false,
+                    optional: false
+                )
+                versionProperty.getterName = RLMObject.RISVersionProperty
+                versionProperty.getterSel = NSSelectorFromString(RLMObject.RISVersionProperty)
+                versionProperty.setterName = RLMObject.RISVersionSetter
+                versionProperty.setterSel = NSSelectorFromString(RLMObject.RISVersionSetter)
+            }
             
             let objectSchema = RLMObjectSchema(
-                className: NSStringFromClass(newClass),
-                objectClass: newClass,
-                properties: [primaryKeyProperty] + properties.map({ $0() })
+                className: NSStringFromClass(backingClass),
+                objectClass: backingClass,
+                properties: [resourceIDProperty, versionProperty] + properties.map({ $0() })
             )
             
-            backingClass = (newClass as! RLMObject.Type, objectSchema)
-            Static.classes[versionHash] = backingClass
+            backingType = (backingClass as! RLMObject.Type, objectSchema)
+            Static.classes[versionHash] = backingType
         }
-        return backingClass!
+        
+        var userInfo = self.userInfo ?? [:]
+        userInfo[NSEntityDescription.RISBackingClassKey] = backingType!.backingClass
+        userInfo[NSEntityDescription.RISObjectSchemaKey] = backingType!.objectSchema
+        self.userInfo = userInfo
+        
+        return backingType!
     }
     
     private typealias IMPGetterFunction = @convention(block) (AnyObject, Selector) -> AnyObject?
     private typealias IMPSetterFunction = @convention(block) (AnyObject, Selector, AnyObject?) -> Void
     private typealias IMPValueConverterFunction = @convention(block) (AnyObject?) -> AnyObject?
     
-    private func addGetterBlock(getter: IMPGetterFunction, methodName: String, toBackingClass backingClass: AnyClass) {
+    private static func addGetterBlock(getter: IMPGetterFunction, methodName: String, toBackingClass backingClass: AnyClass) {
         
         let succeeded = class_addMethod(
             backingClass,
@@ -237,7 +291,7 @@ internal extension NSEntityDescription {
         }
     }
     
-    private func addSetterBlock(getter: IMPSetterFunction, methodName: String, toBackingClass backingClass: AnyClass) {
+    private static func addSetterBlock(getter: IMPSetterFunction, methodName: String, toBackingClass backingClass: AnyClass) {
         
         let succeeded = class_addMethod(
             backingClass,
@@ -251,27 +305,61 @@ internal extension NSEntityDescription {
         }
     }
     
-    private func synthesizePrimaryKeyToBackingClass(backingClass: AnyClass) {
+    private static func synthesizeResourceIDToBackingClass(backingClass: AnyClass) {
         
         self.addGetterBlock(
             { (`self`, _) -> AnyObject? in
                 
-                return object_getIvar(self, class_getInstanceVariable(backingClass, RLMObject.IncrementalStoreResourceIDIVar))
+                return object_getIvar(
+                    self,
+                    class_getInstanceVariable(backingClass, RLMObject.RISResourceIDIVar)
+                )
             },
-            methodName: RLMObject.IncrementalStoreResourceIDProperty,
+            methodName: RLMObject.RISResourceIDProperty,
             toBackingClass: backingClass
         )
         self.addSetterBlock(
             { (`self`, _, value) -> Void in
                 
-                object_setIvar(self, class_getInstanceVariable(backingClass, RLMObject.IncrementalStoreResourceIDIVar), value)
+                object_setIvar(
+                    self,
+                    class_getInstanceVariable(backingClass, RLMObject.RISResourceIDIVar),
+                    value
+                )
             },
-            methodName: RLMObject.IncrementalStoreResourceIDSetter,
+            methodName: RLMObject.RISResourceIDSetter,
             toBackingClass: backingClass
         )
     }
     
-    private func synthesizePropertyWithName(propertyName: String, toBackingClass backingClass: AnyClass, getter: IMPValueConverterFunction? = nil, setter: IMPValueConverterFunction? = nil) -> (iVar: String, getter: String, setter: String) {
+    private static func synthesizeVersionToBackingClass(backingClass: AnyClass) {
+        
+        self.addGetterBlock(
+            { (`self`, _) -> AnyObject? in
+                
+                return object_getIvar(
+                    self,
+                    class_getInstanceVariable(backingClass, RLMObject.RISVersionIVar)
+                )
+            },
+            methodName: RLMObject.RISVersionProperty,
+            toBackingClass: backingClass
+        )
+        self.addSetterBlock(
+            { (`self`, _, value) -> Void in
+                
+                object_setIvar(
+                    self,
+                    class_getInstanceVariable(backingClass, RLMObject.RISVersionIVar),
+                    value
+                )
+            },
+            methodName: RLMObject.RISVersionSetter,
+            toBackingClass: backingClass
+        )
+    }
+    
+    private static func synthesizePropertyWithName(propertyName: String, toBackingClass backingClass: AnyClass, getter: IMPValueConverterFunction? = nil, setter: IMPValueConverterFunction? = nil) -> (iVar: String, getter: String, setter: String) {
         
         let iVarName = "_\(propertyName)"
         
@@ -280,14 +368,22 @@ internal extension NSEntityDescription {
             
             actualGetter = { (`self`, _) -> AnyObject? in
                 
-                return getter(object_getIvar(self, class_getInstanceVariable(backingClass, iVarName)))
+                return getter(
+                    object_getIvar(
+                        self,
+                        class_getInstanceVariable(backingClass, iVarName)
+                    )
+                )
             }
         }
         else {
             
             actualGetter = { (`self`, _) -> AnyObject? in
                 
-                return object_getIvar(self, class_getInstanceVariable(backingClass, iVarName))
+                return object_getIvar(
+                    self,
+                    class_getInstanceVariable(backingClass, iVarName)
+                )
             }
         }
         
@@ -303,14 +399,22 @@ internal extension NSEntityDescription {
             
             actualSetter = { (`self`, _, value) -> Void in
                 
-                object_setIvar(self, class_getInstanceVariable(backingClass, iVarName), setter(value))
+                object_setIvar(
+                    self,
+                    class_getInstanceVariable(backingClass, iVarName),
+                    setter(value)
+                )
             }
         }
         else {
             
             actualSetter = { (`self`, _, value) -> Void in
                 
-                object_setIvar(self, class_getInstanceVariable(backingClass, iVarName), value)
+                object_setIvar(
+                    self,
+                    class_getInstanceVariable(backingClass, iVarName),
+                    value
+                )
             }
         }
         let setterName = "set\(propertyName.capitalizedString):"

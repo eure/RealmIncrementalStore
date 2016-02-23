@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B53232741C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53232731C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift */; };
 		B53232761C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53232751C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift */; };
-		B53232781C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53232771C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift */; };
+		B53232781C7B156A00E9D3C7 /* NSManagedObjectID+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53232771C7B156A00E9D3C7 /* NSManagedObjectID+RealmIncrementalStore.swift */; };
 		B53381CE1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381CD1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift */; };
 		B53381D01C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381CF1C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift */; };
 		B5838DC41C75A6B900C781BA /* RealmIncrementalStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B5838DC31C75A6B900C781BA /* RealmIncrementalStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,7 +52,7 @@
 /* Begin PBXFileReference section */
 		B53232731C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPredicate+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B53232751C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSExpression+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
-		B53232771C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
+		B53232771C7B156A00E9D3C7 /* NSManagedObjectID+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectID+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B532327B1C7B24EA00E9D3C7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B53381CD1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B53381CF1C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				B53381CF1C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift */,
 				B53232731C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift */,
 				B53232751C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift */,
-				B53232771C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift */,
+				B53232771C7B156A00E9D3C7 /* NSManagedObjectID+RealmIncrementalStore.swift */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -278,7 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B53232781C7B156A00E9D3C7 /* NSManagedObject+RealmIncrementalStore.swift in Sources */,
+				B53232781C7B156A00E9D3C7 /* NSManagedObjectID+RealmIncrementalStore.swift in Sources */,
 				B53381D01C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift in Sources */,
 				B5838DDB1C75A6F200C781BA /* RealmIncrementalStore.swift in Sources */,
 				B5838DE61C75AA9000C781BA /* RLMSupport.swift in Sources */,

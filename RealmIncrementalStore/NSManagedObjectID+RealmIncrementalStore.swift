@@ -1,5 +1,5 @@
 //
-//  NSManagedObject+RealmIncrementalStore.swift
+//  NSManagedObjectID+RealmIncrementalStore.swift
 //  RealmIncrementalStore
 //
 //  Copyright © 2016 eureka, Inc., John Rommel Estropia
@@ -27,18 +27,20 @@ import CoreData
 import Foundation
 import Realm
 
-internal extension NSManagedObject {
+
+// MARK: - NSManagedObjectID
+
+internal extension NSManagedObjectID {
     
     func realmObject() -> RLMObject? {
         
-        let objectID = self.objectID
-        guard case (let store as RealmIncrementalStore) = objectID.persistentStore else {
+        guard case (let store as RealmIncrementalStore) = self.persistentStore else {
             
             return nil
         }
         
-        let primaryKey = store.referenceObjectForObjectID(objectID)
-        let backingClass = objectID.entity.realmBackingType.backingClass
-        return backingClass.init(forPrimaryKey: primaryKey)
+        let primaryKey = store.referenceObjectForObjectID(self)
+        let backingClass = self.entity.realmBackingClass
+        return backingClass.init(inRealm: store.rootRealm, forPrimaryKey: primaryKey)
     }
 }

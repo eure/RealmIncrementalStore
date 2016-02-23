@@ -27,6 +27,9 @@ import CoreData
 import Foundation
 import Realm
 
+
+// MARK: - NSPredicate
+
 internal extension NSPredicate {
     
     internal func realmPredicate() -> NSPredicate {

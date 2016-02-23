@@ -32,4 +32,6 @@ public enum RealmIncrementalStoreError: ErrorType {
     case PersistentStoreURLInvalid
     case PersistentStoreCorrupted
     case InvalidDataTypeInDataModel
+    case StoreRequestUnsupported
+    case ObjectNotFound
 }

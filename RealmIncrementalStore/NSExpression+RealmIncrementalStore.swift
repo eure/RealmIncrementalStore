@@ -27,6 +27,9 @@ import CoreData
 import Foundation
 import Realm
 
+
+// MARK: - NSExpression
+
 internal extension NSExpression {
     
     internal func realmExpression() -> NSExpression {
@@ -36,21 +39,38 @@ internal extension NSExpression {
         case .ConstantValueExpressionType:
             switch self.constantValue {
                 
-            case let object as NSManagedObject:
-                guard let realmObject = object.realmObject() else {
+            case let objectID as NSManagedObjectID:
+                guard let realmObject = objectID.realmObject() else {
                     
                     return self
                 }
                 return NSExpression(forConstantValue: realmObject)
                 
-            case let set as NSSet:
+            case let set as Set<NSManagedObjectID>:
                 return NSExpression(
                     forConstantValue: set.map { $0.realmObject() ?? $0 }
                 )
                 
-            case let array as NSArray:
+            case let array as [NSManagedObjectID]:
                 return NSExpression(
                     forConstantValue: array.map { $0.realmObject() ?? $0 }
+                )
+                
+            case let object as NSManagedObject:
+                guard let realmObject = object.objectID.realmObject() else {
+                    
+                    return self
+                }
+                return NSExpression(forConstantValue: realmObject)
+                
+            case let set as Set<NSManagedObject>:
+                return NSExpression(
+                    forConstantValue: set.map { $0.objectID.realmObject() ?? $0 }
+                )
+                
+            case let array as [NSManagedObject]:
+                return NSExpression(
+                    forConstantValue: array.map { $0.objectID.realmObject() ?? $0 }
                 )
                 
             default:

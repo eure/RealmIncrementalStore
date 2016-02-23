@@ -27,22 +27,60 @@ import CoreData
 import Foundation
 import Realm
 
+
+// MARK: - RLMObject
+
 internal extension RLMObject {
     
-    @nonobjc internal static let IncrementalStoreResourceIDProperty = "_RIS_PK"
-    @nonobjc internal static let IncrementalStoreResourceIDSetter = "set_RIS_PK:"
-    @nonobjc internal static let IncrementalStoreResourceIDIVar = "__RIS_PK"
+    @nonobjc internal static let RISResourceIDProperty = "_RIS_PK"
+    @nonobjc internal static let RISResourceIDSetter = "set_RIS_PK:"
+    @nonobjc internal static let RISResourceIDIVar = "__RIS_PK"
     
-    @nonobjc internal static func IncrementalStoreBackingClassNameForEntity(entity: NSEntityDescription) -> NSString {
+    @nonobjc internal static let RISVersionProperty = "_RIS_VER"
+    @nonobjc internal static let RISVersionSetter = "set_RIS_VER:"
+    @nonobjc internal static let RISVersionIVar = "__RIS_VER"
+    
+    @nonobjc internal static func RISBackingClassNameForEntity(entity: NSEntityDescription) -> NSString {
         
-        return "_RIS_\(_RealmIncrementalStoreMetadata.currentPrimaryKeyValue)_\(entity.name!)"
+        return "_RIS_\(RealmIncrementalStoreMetadata.currentSDKVersion)_\(entity.name!)"
+    }
+    
+    internal static dynamic func createBackingObjectInRealm(realm: RLMRealm, referenceObject: AnyObject) -> RLMObject {
+        
+        return self.createInRealm(
+            realm,
+            withValue: [
+                RLMObject.RISResourceIDProperty: referenceObject
+            ]
+        )
+    }
+    
+    @nonobjc internal var realmResourceID: String {
+        
+        return self[RLMObject.RISResourceIDProperty] as! String
+    }
+    
+    @nonobjc internal var realmObjectVersion: UInt64 {
+        
+        get {
+            
+            return (self[RLMObject.RISVersionProperty] as? NSNumber)?.unsignedLongLongValue ?? 0
+        }
+        set {
+            
+            self[RLMObject.RISVersionProperty] = NSNumber(unsignedLongLong: newValue)
+        }
     }
     
     @nonobjc internal func setValuesFromManagedObject(managedObject: NSManagedObject) throws {
         
         let entity = managedObject.entity
         entity.attributesByName.keys
-            .filter { $0 != RLMObject.IncrementalStoreResourceIDProperty }
+            .filter {
+                
+                return $0 != RLMObject.RISResourceIDProperty
+                    && $0 != RLMObject.RISVersionProperty
+            }
             .forEach { self[$0] = managedObject.valueForKey($0) }
         // TODO: external binary storage(?)
         
@@ -65,5 +103,7 @@ internal extension RLMObject {
                 }
             }
         }
+        
+        self.realmObjectVersion += 1
     }
 }

@@ -1,5 +1,5 @@
 //
-//  RealmIncrementalStoreMetadata.swift
+//  _RealmIncrementalStoreMetadata.swift
 //  RealmIncrementalStore
 //
 //  Copyright © 2016 eureka, Inc., John Rommel Estropia
@@ -29,29 +29,26 @@ import Realm
 
 // MARK: - RealmIncrementalStoreMetadata
 
-@objc
-internal final class _RealmIncrementalStoreMetadata: RLMObject {
+@objc(__RIS_1_Metadata)
+internal final class RealmIncrementalStoreMetadata: RLMObject {
     
-    @objc dynamic var _metadataVersion: NSNumber = 1
-    @objc dynamic var _versionHashes: NSData = NSData()
+    @objc dynamic var sdkVersion: Int32 = Int32(RealmIncrementalStoreMetadata.currentSDKVersion)
+    
+    @objc dynamic var storeIdentifier: String = ""
+    
+    @objc dynamic var versionHashes: NSData = NSData()
+    
+    
+    // MARK: RLMObject
     
     override class func primaryKey() -> String? {
         
-        return "_metadataVersion"
+        return "sdkVersion"
     }
     
     
     // MARK: Internal
     
     @nonobjc
-    internal class var versionHashesKey: String {
-        
-        return "_versionHashes"
-    }
-    
-    @nonobjc
-    internal class var currentPrimaryKeyValue: Int {
-        
-        return 1
-    }
+    internal static let currentSDKVersion: Int = 1
 }
