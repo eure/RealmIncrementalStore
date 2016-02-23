@@ -84,7 +84,12 @@ internal extension NSEntityDescription {
             var defaultValues: [String: AnyObject] = [
                 RLMObject.RISVersionProperty: 0
             ]
-            let properties = self.attributesByName.map { (attributeName, attributeDescription) -> (() -> RLMProperty) in
+            let properties = self.attributesByName.flatMap { (attributeName, attributeDescription) -> (() -> RLMProperty)? in
+                
+                guard !attributeDescription.transient else {
+                    
+                    return nil
+                }
                 
                 let rawAttribute: NSString
                 let realmPropertyType: RLMPropertyType
@@ -143,9 +148,11 @@ internal extension NSEntityDescription {
                     setterConverter = nil
                     
                 case .TransformableAttributeType:
-                    // If your attribute is of NSTransformableAttributeType, the attributeValueClassName must be set or attribute value class must implement NSCopying.
-                    // TODO: implement
-                    fatalError()
+                    // Transformable only supports NSCopying instances
+                    rawAttribute = "\"NSData\""
+                    realmPropertyType = .Data
+                    getterConverter = { ($0 as? NSData).flatMap { NSKeyedUnarchiver.unarchiveObjectWithData($0) } }
+                    setterConverter = { $0.flatMap { NSKeyedArchiver.archivedDataWithRootObject($0) } }
                     
                 case .ObjectIDAttributeType: fallthrough
                 case .UndefinedAttributeType:
@@ -209,8 +216,6 @@ internal extension NSEntityDescription {
                 methodName: "primaryKey",
                 toBackingClass: metaClass
             )
-            
-            // TODO: transient
             
             if !defaultValues.isEmpty {
                 
