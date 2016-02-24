@@ -13,9 +13,10 @@ Here's the kicker: Core Data is stuck with SQLite until a better lightweight DB 
 
 Fortunately, Core Data's `NSIncrementalStore` interface lets us use the best of both worlds. `RealmIncrementalStore` is an `NSIncrementalStore` subclass that dynamically creates Realm schema using your Core Data models.
 
-Here's an `NSFetchedResultsController` running on Realm back-end:
+Here's an `NSFetchedResultsController` running on Realm back-end (right: [Realm Browser](https://itunes.apple.com/us/app/realm-browser/id1007457278?mt=12)):
 
-<img src="https://cloud.githubusercontent.com/assets/3029684/13247780/9b9f9028-da5e-11e5-89ce-cf83de1123a5.gif" width=250 alt="Demo Application" />
+<img src="https://cloud.githubusercontent.com/assets/3029684/13276802/427c5398-db06-11e5-952b-19264a700bc5.gif" alt="Demo App and Realm Browser" />
+
 
 (Check the *RealmIncrementalStoreDemo* to see how it works)
 
