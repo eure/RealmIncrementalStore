@@ -10,14 +10,16 @@
 		B53232711C7AAF9900E9D3C7 /* TestEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532326F1C7AAF9900E9D3C7 /* TestEntity+CoreDataProperties.swift */; };
 		B53232721C7AAF9900E9D3C7 /* TestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53232701C7AAF9900E9D3C7 /* TestEntity.swift */; };
 		B532327A1C7B1BD700E9D3C7 /* NSManagedObjectContext+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53232791C7B1BD700E9D3C7 /* NSManagedObjectContext+Utilities.swift */; };
-		B53381CB1C76A69200FF1DE0 /* RealmIncrementalStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53381CA1C76A69200FF1DE0 /* RealmIncrementalStore.framework */; };
-		B53381CC1C76A69200FF1DE0 /* RealmIncrementalStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B53381CA1C76A69200FF1DE0 /* RealmIncrementalStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B5838DF41C75AF9900C781BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838DF31C75AF9900C781BA /* AppDelegate.swift */; };
 		B5838DF61C75AF9900C781BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838DF51C75AF9900C781BA /* ViewController.swift */; };
 		B5838DF91C75AF9900C781BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5838DF71C75AF9900C781BA /* Main.storyboard */; };
 		B5838DFC1C75AF9900C781BA /* RealmIncrementalStoreDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5838DFA1C75AF9900C781BA /* RealmIncrementalStoreDemo.xcdatamodeld */; };
 		B5838DFE1C75AF9900C781BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5838DFD1C75AF9900C781BA /* Assets.xcassets */; };
 		B5838E011C75AF9900C781BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5838DFF1C75AF9900C781BA /* LaunchScreen.storyboard */; };
+		B5BE8AA61C7D573900FA2BB9 /* RealmIncrementalStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5BE8AA51C7D573900FA2BB9 /* RealmIncrementalStore.framework */; };
+		B5BE8AA71C7D573900FA2BB9 /* RealmIncrementalStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5BE8AA51C7D573900FA2BB9 /* RealmIncrementalStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B5BE8AA91C7D576300FA2BB9 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5BE8AA81C7D576300FA2BB9 /* Realm.framework */; };
+		B5BE8AAA1C7D576300FA2BB9 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5BE8AA81C7D576300FA2BB9 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +29,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B53381CC1C76A69200FF1DE0 /* RealmIncrementalStore.framework in Embed Frameworks */,
+				B5BE8AAA1C7D576300FA2BB9 /* Realm.framework in Embed Frameworks */,
+				B5BE8AA71C7D573900FA2BB9 /* RealmIncrementalStore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,7 +41,6 @@
 		B532326F1C7AAF9900E9D3C7 /* TestEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B53232701C7AAF9900E9D3C7 /* TestEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEntity.swift; sourceTree = "<group>"; };
 		B53232791C7B1BD700E9D3C7 /* NSManagedObjectContext+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Utilities.swift"; sourceTree = "<group>"; };
-		B53381CA1C76A69200FF1DE0 /* RealmIncrementalStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = RealmIncrementalStore.framework; path = "/Users/JohnEstropia/Library/Developer/Xcode/DerivedData/RealmIncrementalStore-abtlacdavaidadhetdojyngytukx/Build/Products/Debug-iphoneos/RealmIncrementalStore.framework"; sourceTree = "<absolute>"; };
 		B5838DF01C75AF9900C781BA /* RealmIncrementalStoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmIncrementalStoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5838DF31C75AF9900C781BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5838DF51C75AF9900C781BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		B5838DFD1C75AF9900C781BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5838E001C75AF9900C781BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5838E021C75AF9900C781BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5BE8AA51C7D573900FA2BB9 /* RealmIncrementalStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmIncrementalStore.framework; path = "../Debug-iphonesimulator/RealmIncrementalStore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5BE8AA81C7D576300FA2BB9 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B53381CB1C76A69200FF1DE0 /* RealmIncrementalStore.framework in Frameworks */,
+				B5BE8AA91C7D576300FA2BB9 /* Realm.framework in Frameworks */,
+				B5BE8AA61C7D573900FA2BB9 /* RealmIncrementalStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +69,7 @@
 		B5838DE71C75AF9900C781BA = {
 			isa = PBXGroup;
 			children = (
-				B53381CA1C76A69200FF1DE0 /* RealmIncrementalStore.framework */,
+				B5BE8AAB1C7D576800FA2BB9 /* Frameworks */,
 				B5838DF21C75AF9900C781BA /* RealmIncrementalStoreDemo */,
 				B5838DF11C75AF9900C781BA /* Products */,
 			);
@@ -93,6 +98,15 @@
 				B5838DFA1C75AF9900C781BA /* RealmIncrementalStoreDemo.xcdatamodeld */,
 			);
 			path = RealmIncrementalStoreDemo;
+			sourceTree = "<group>";
+		};
+		B5BE8AAB1C7D576800FA2BB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5BE8AA81C7D576300FA2BB9 /* Realm.framework */,
+				B5BE8AA51C7D573900FA2BB9 /* RealmIncrementalStore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +302,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RealmIncrementalStoreDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnestropia.RealmIncrementalStoreDemo;
@@ -301,7 +320,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RealmIncrementalStoreDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnestropia.RealmIncrementalStoreDemo;

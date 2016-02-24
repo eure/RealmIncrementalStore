@@ -12,18 +12,18 @@
 		B53232781C7B156A00E9D3C7 /* NSManagedObjectID+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53232771C7B156A00E9D3C7 /* NSManagedObjectID+RealmIncrementalStore.swift */; };
 		B53381CE1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381CD1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift */; };
 		B53381D01C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381CF1C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift */; };
+		B533C1151C7D50C100C93E2E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B533C1141C7D50C100C93E2E /* Realm.framework */; };
+		B533C1191C7D517500C93E2E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B533C1181C7D517500C93E2E /* libc++.tbd */; };
 		B5838DC41C75A6B900C781BA /* RealmIncrementalStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B5838DC31C75A6B900C781BA /* RealmIncrementalStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5838DCB1C75A6B900C781BA /* RealmIncrementalStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5838DC01C75A6B900C781BA /* RealmIncrementalStore.framework */; };
 		B5838DD01C75A6B900C781BA /* RealmIncrementalStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838DCF1C75A6B900C781BA /* RealmIncrementalStoreTests.swift */; };
 		B5838DDB1C75A6F200C781BA /* RealmIncrementalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838DDA1C75A6F200C781BA /* RealmIncrementalStore.swift */; };
 		B5838DDD1C75A71900C781BA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5838DDC1C75A71900C781BA /* CoreData.framework */; };
 		B5838DDF1C75A72000C781BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5838DDE1C75A72000C781BA /* Foundation.framework */; };
-		B5838DE21C75AA2200C781BA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5838DE11C75AA2200C781BA /* Realm.framework */; };
-		B5838DE41C75AA2F00C781BA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B5838DE31C75AA2F00C781BA /* libc++.tbd */; };
 		B5838DE61C75AA9000C781BA /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838DE51C75AA9000C781BA /* RLMSupport.swift */; };
 		B5838E0D1C75BAE000C781BA /* RealmIncrementalStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838E0C1C75BAE000C781BA /* RealmIncrementalStoreError.swift */; };
 		B5838E0F1C75C9D100C781BA /* RealmIncrementalStoreMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5838E0E1C75C9D100C781BA /* RealmIncrementalStoreMetadata.swift */; };
-		B5838E1F1C75DC3800C781BA /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5838DE11C75AA2200C781BA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B5BE8AA41C7D56B100FA2BB9 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B533C1141C7D50C100C93E2E /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B5838E1F1C75DC3800C781BA /* Realm.framework in CopyFiles */,
+				B5BE8AA41C7D56B100FA2BB9 /* Realm.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +57,8 @@
 		B532327E1C7C41F300E9D3C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B53381CD1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B53381CF1C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
+		B533C1141C7D50C100C93E2E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		B533C1181C7D517500C93E2E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		B5838DC01C75A6B900C781BA /* RealmIncrementalStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RealmIncrementalStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5838DC31C75A6B900C781BA /* RealmIncrementalStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealmIncrementalStore.h; sourceTree = "<group>"; };
 		B5838DC51C75A6B900C781BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,8 +68,6 @@
 		B5838DDA1C75A6F200C781BA /* RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmIncrementalStore.swift; sourceTree = "<group>"; };
 		B5838DDC1C75A71900C781BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B5838DDE1C75A72000C781BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B5838DE11C75AA2200C781BA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		B5838DE31C75AA2F00C781BA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		B5838DE51C75AA9000C781BA /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		B5838E0C1C75BAE000C781BA /* RealmIncrementalStoreError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmIncrementalStoreError.swift; sourceTree = "<group>"; };
 		B5838E0E1C75C9D100C781BA /* RealmIncrementalStoreMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmIncrementalStoreMetadata.swift; sourceTree = "<group>"; };
@@ -78,8 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5838DE41C75AA2F00C781BA /* libc++.tbd in Frameworks */,
-				B5838DE21C75AA2200C781BA /* Realm.framework in Frameworks */,
+				B533C1191C7D517500C93E2E /* libc++.tbd in Frameworks */,
+				B533C1151C7D50C100C93E2E /* Realm.framework in Frameworks */,
 				B5838DDF1C75A72000C781BA /* Foundation.framework in Frameworks */,
 				B5838DDD1C75A71900C781BA /* CoreData.framework in Frameworks */,
 			);
@@ -142,10 +142,10 @@
 		B5838DE01C75A72600C781BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B533C1181C7D517500C93E2E /* libc++.tbd */,
+				B533C1141C7D50C100C93E2E /* Realm.framework */,
 				B5838DDC1C75A71900C781BA /* CoreData.framework */,
 				B5838DDE1C75A72000C781BA /* Foundation.framework */,
-				B5838DE31C75AA2F00C781BA /* libc++.tbd */,
-				B5838DE11C75AA2200C781BA /* Realm.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,6 +194,7 @@
 				B5838DBD1C75A6B900C781BA /* Headers */,
 				B5838DBE1C75A6B900C781BA /* Resources */,
 				B5838E1E1C75DC2500C781BA /* CopyFiles */,
+				B5BE8AA31C7D566900FA2BB9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -274,6 +275,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B5BE8AA31C7D566900FA2BB9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B5838DBB1C75A6B900C781BA /* Sources */ = {
@@ -411,6 +428,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = RealmIncrementalStore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -433,6 +451,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = RealmIncrementalStore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
