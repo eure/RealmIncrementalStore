@@ -53,8 +53,8 @@
 		B53232731C7AEF4100E9D3C7 /* NSPredicate+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPredicate+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B53232751C7AF33D00E9D3C7 /* NSExpression+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSExpression+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B53232771C7B156A00E9D3C7 /* NSManagedObjectID+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectID+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
-		B532327B1C7B24EA00E9D3C7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		B532327E1C7C41F300E9D3C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B532327B1C7B24EA00E9D3C7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		B532327E1C7C41F300E9D3C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		B53381CD1C76CD4C00FF1DE0 /* NSEntityDescription+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B53381CF1C77157800FF1DE0 /* RLMObject+RealmIncrementalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+RealmIncrementalStore.swift"; sourceTree = "<group>"; };
 		B533C1141C7D50C100C93E2E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
