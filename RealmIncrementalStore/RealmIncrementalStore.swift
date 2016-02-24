@@ -249,16 +249,32 @@ public final class RealmIncrementalStore: NSIncrementalStore {
             }
             
         case NSFetchRequestResultType.DictionaryResultType:
-            // TODO:
-            break
+            return results.flatMap { object -> AnyObject? in
+                
+                let propertiesToFetch = request.propertiesToFetch ?? []
+                let keyValues = object.dictionaryWithValuesForKeys(
+                    propertiesToFetch.flatMap {
+                        
+                        switch $0 {
+                            
+                        case let string as String:
+                            return string
+                        case let property as NSPropertyDescription:
+                            return property.name
+                        default:
+                            return nil
+                        }
+                    }
+                )
+                return keyValues
+            }
             
         case NSFetchRequestResultType.CountResultType:
             return results.count
             
         default:
-            break
+            fatalError()
         }
-        fatalError()
     }
     
     private func executeSaveRequest(request: NSSaveChangesRequest, inContext context: NSManagedObjectContext?) throws -> AnyObject {
