@@ -16,11 +16,33 @@
 		B5838DFC1C75AF9900C781BA /* RealmIncrementalStoreDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5838DFA1C75AF9900C781BA /* RealmIncrementalStoreDemo.xcdatamodeld */; };
 		B5838DFE1C75AF9900C781BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5838DFD1C75AF9900C781BA /* Assets.xcassets */; };
 		B5838E011C75AF9900C781BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5838DFF1C75AF9900C781BA /* LaunchScreen.storyboard */; };
-		B5BE8AA61C7D573900FA2BB9 /* RealmIncrementalStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5BE8AA51C7D573900FA2BB9 /* RealmIncrementalStore.framework */; };
-		B5BE8AA71C7D573900FA2BB9 /* RealmIncrementalStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5BE8AA51C7D573900FA2BB9 /* RealmIncrementalStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B5BE8AA91C7D576300FA2BB9 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5BE8AA81C7D576300FA2BB9 /* Realm.framework */; };
-		B5BE8AAA1C7D576300FA2BB9 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5BE8AA81C7D576300FA2BB9 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B5BE8AB51C7D6DB400FA2BB9 /* RealmIncrementalStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5BE8AB21C7D6DA300FA2BB9 /* RealmIncrementalStore.framework */; };
+		B5BE8AB61C7D6DB400FA2BB9 /* RealmIncrementalStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5BE8AB21C7D6DA300FA2BB9 /* RealmIncrementalStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B5BE8AB11C7D6DA300FA2BB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5BE8AAC1C7D6DA200FA2BB9 /* RealmIncrementalStore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5838DC01C75A6B900C781BA;
+			remoteInfo = RealmIncrementalStore;
+		};
+		B5BE8AB31C7D6DA300FA2BB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5BE8AAC1C7D6DA200FA2BB9 /* RealmIncrementalStore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5838DCA1C75A6B900C781BA;
+			remoteInfo = RealmIncrementalStoreTests;
+		};
+		B5BE8AB71C7D6DB400FA2BB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5BE8AAC1C7D6DA200FA2BB9 /* RealmIncrementalStore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B5838DBF1C75A6B900C781BA;
+			remoteInfo = RealmIncrementalStore;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		B5838E1C1C75D90D00C781BA /* Embed Frameworks */ = {
@@ -29,8 +51,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B5BE8AAA1C7D576300FA2BB9 /* Realm.framework in Embed Frameworks */,
-				B5BE8AA71C7D573900FA2BB9 /* RealmIncrementalStore.framework in Embed Frameworks */,
+				B5BE8AB61C7D6DB400FA2BB9 /* RealmIncrementalStore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,8 +70,7 @@
 		B5838DFD1C75AF9900C781BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5838E001C75AF9900C781BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5838E021C75AF9900C781BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B5BE8AA51C7D573900FA2BB9 /* RealmIncrementalStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmIncrementalStore.framework; path = "../Debug-iphonesimulator/RealmIncrementalStore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5BE8AA81C7D576300FA2BB9 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		B5BE8AAC1C7D6DA200FA2BB9 /* RealmIncrementalStore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = RealmIncrementalStore.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5BE8AA91C7D576300FA2BB9 /* Realm.framework in Frameworks */,
-				B5BE8AA61C7D573900FA2BB9 /* RealmIncrementalStore.framework in Frameworks */,
+				B5BE8AB51C7D6DB400FA2BB9 /* RealmIncrementalStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +88,7 @@
 		B5838DE71C75AF9900C781BA = {
 			isa = PBXGroup;
 			children = (
-				B5BE8AAB1C7D576800FA2BB9 /* Frameworks */,
+				B5BE8AAC1C7D6DA200FA2BB9 /* RealmIncrementalStore.xcodeproj */,
 				B5838DF21C75AF9900C781BA /* RealmIncrementalStoreDemo */,
 				B5838DF11C75AF9900C781BA /* Products */,
 			);
@@ -100,13 +119,13 @@
 			path = RealmIncrementalStoreDemo;
 			sourceTree = "<group>";
 		};
-		B5BE8AAB1C7D576800FA2BB9 /* Frameworks */ = {
+		B5BE8AAD1C7D6DA200FA2BB9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B5BE8AA81C7D576300FA2BB9 /* Realm.framework */,
-				B5BE8AA51C7D573900FA2BB9 /* RealmIncrementalStore.framework */,
+				B5BE8AB21C7D6DA300FA2BB9 /* RealmIncrementalStore.framework */,
+				B5BE8AB41C7D6DA300FA2BB9 /* RealmIncrementalStoreTests.xctest */,
 			);
-			name = Frameworks;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +143,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B5BE8AB81C7D6DB400FA2BB9 /* PBXTargetDependency */,
 			);
 			name = RealmIncrementalStoreDemo;
 			productName = RealmIncrementalStoreDemo;
@@ -156,12 +176,35 @@
 			mainGroup = B5838DE71C75AF9900C781BA;
 			productRefGroup = B5838DF11C75AF9900C781BA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B5BE8AAD1C7D6DA200FA2BB9 /* Products */;
+					ProjectRef = B5BE8AAC1C7D6DA200FA2BB9 /* RealmIncrementalStore.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B5838DEF1C75AF9900C781BA /* RealmIncrementalStoreDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B5BE8AB21C7D6DA300FA2BB9 /* RealmIncrementalStore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RealmIncrementalStore.framework;
+			remoteRef = B5BE8AB11C7D6DA300FA2BB9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B5BE8AB41C7D6DA300FA2BB9 /* RealmIncrementalStoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RealmIncrementalStoreTests.xctest;
+			remoteRef = B5BE8AB31C7D6DA300FA2BB9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B5838DEE1C75AF9900C781BA /* Resources */ = {
@@ -191,6 +234,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B5BE8AB81C7D6DB400FA2BB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RealmIncrementalStore;
+			targetProxy = B5BE8AB71C7D6DB400FA2BB9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B5838DF71C75AF9900C781BA /* Main.storyboard */ = {
