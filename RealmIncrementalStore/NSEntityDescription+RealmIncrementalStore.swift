@@ -112,10 +112,10 @@ internal extension NSEntityDescription {
                     setterConverter = nil
                     
                 case .DateAttributeType:
-                    rawAttribute = "\"NSNumber<RLMDouble>\""
-                    realmPropertyType = .Double
-                    getterConverter = { ($0 as? NSNumber).flatMap { NSDate(timeIntervalSince1970: $0.doubleValue) } }
-                    setterConverter = { ($0 as? NSDate).flatMap { $0.timeIntervalSince1970 } }
+                    rawAttribute = "\"NSDate\""
+                    realmPropertyType = .Date
+                    getterConverter = nil
+                    setterConverter = nil
                     
                 case .DoubleAttributeType:
                     rawAttribute = "\"NSNumber<RLMDouble>\""
@@ -422,7 +422,21 @@ internal extension NSEntityDescription {
                 )
             }
         }
-        let setterName = "set\(propertyName.capitalizedString):"
+        
+        let alphabetSet = NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        let capitalized = propertyName.characters.enumerate().flatMap { (index, character) -> [Character] in
+            
+            if index == 0 {
+                
+                let string = String(character)
+                if let _ = string.rangeOfCharacterFromSet(alphabetSet) {
+                    
+                    return Array(string.uppercaseString.characters)
+                }
+            }
+            return [character]
+        }
+        let setterName = "set\(String(capitalized)):"
         self.addSetterBlock(
             actualSetter,
             methodName: setterName,

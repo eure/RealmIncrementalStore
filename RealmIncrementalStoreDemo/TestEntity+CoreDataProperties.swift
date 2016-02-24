@@ -27,7 +27,8 @@ import Foundation
 import CoreData
 
 extension TestEntity {
-
+    
+    @NSManaged var dateField: NSDate?
     @NSManaged var intField: NSNumber?
     @NSManaged var sectionField: String?
     @NSManaged var stringField: String?

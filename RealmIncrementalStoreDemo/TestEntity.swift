@@ -34,5 +34,6 @@ class TestEntity: NSManagedObject {
         self.stringField = "random item \(arc4random_uniform(100))"
         self.intField = NSNumber(unsignedInt: arc4random_uniform(10000))
         self.sectionField = "Section \(arc4random_uniform(5))"
+        self.dateField = NSDate(timeIntervalSince1970: NSTimeInterval(arc4random_uniform(50 * 365 * 24 * 60 * 60)))
     }
 }
