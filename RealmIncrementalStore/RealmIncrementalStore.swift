@@ -206,10 +206,11 @@ public final class RealmIncrementalStore: NSIncrementalStore {
     
     private func createBackingClassesForModel(model: NSManagedObjectModel) -> RLMSchema {
         
+        let metadataSchema = [RLMObjectSchema(forObjectClass: RealmIncrementalStoreMetadata.self)]
+        let entitiesSchema = model.entities.map { $0.loadRealmBackingTypeIfNeeded().objectSchema }
+        let relationshipsSchema = [RLMObjectSchema]() // TODO:
         let schema = RLMSchema()
-        schema.objectSchema =
-            [RLMObjectSchema(forObjectClass: RealmIncrementalStoreMetadata.self)]
-            + model.entities.map { $0.loadRealmBackingTypeIfNeeded().objectSchema }
+        schema.objectSchema = metadataSchema + entitiesSchema + relationshipsSchema
         return schema
     }
     

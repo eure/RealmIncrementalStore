@@ -34,4 +34,6 @@ public enum RealmIncrementalStoreError: ErrorType {
     case InvalidDataTypeInDataModel
     case StoreRequestUnsupported
     case ObjectNotFound
+    case AttributeDataTypeUnsupported
+    case RelationshipDestinationEntityUnknown
 }
