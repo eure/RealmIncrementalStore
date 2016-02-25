@@ -28,7 +28,6 @@ Just include RealmIncrementalStore in your project and everything else is good o
 
 ```swift
 let coordinator = NSPersistentStoreCoordinator(...)
-        let documentsDirectory = 
 do {
     
     try coordinator.addPersistentStoreWithType(
