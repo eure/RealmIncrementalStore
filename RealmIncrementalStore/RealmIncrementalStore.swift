@@ -160,7 +160,7 @@ public final class RealmIncrementalStore: NSIncrementalStore {
         
         let keyValues = realmObject.dictionaryWithValuesForKeys(
             objectID.entity.realmObjectSchema.properties
-                .filter { $0.objectClassName == nil }
+                .filter { $0.objectClassName == nil && realmObject[$0.name] != nil }
                 .map { $0.getterName }
         )
         
