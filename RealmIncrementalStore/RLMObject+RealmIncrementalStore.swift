@@ -86,16 +86,33 @@ internal extension RLMObject {
         
         entity.relationshipsByName.forEach { (relationshipName, relationshipDescription) in
             
-            let value = managedObject.valueForKey(relationshipName) as? NSManagedObject
             if relationshipDescription.toMany {
                 
-                // TODO:
+                guard let realmArray = self[relationshipName] as? RLMArray else {
+                    
+                    return
+                }
+                
+                realmArray.removeAllObjects()
+                
+                if relationshipDescription.ordered {
+                    
+                    (managedObject.valueForKey(relationshipName) as? NSOrderedSet)?
+                        .flatMap { ($0 as? NSManagedObject)?.objectID.realmObject() }
+                        .forEach(realmArray.addObject)
+                }
+                else {
+                    
+                    (managedObject.valueForKey(relationshipName) as? Set<NSManagedObject>)?
+                        .flatMap { $0.objectID.realmObject() }
+                        .forEach(realmArray.addObject)
+                }
             }
             else {
                 
-                if let _ = value {
+                if let value = managedObject.valueForKey(relationshipName) as? NSManagedObject {
                     
-                    // TODO:
+                    self[relationshipName] = value.objectID.realmObject()
                 }
                 else {
                     

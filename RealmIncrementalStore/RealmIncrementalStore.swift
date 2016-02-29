@@ -159,7 +159,9 @@ public final class RealmIncrementalStore: NSIncrementalStore {
         }
         
         let keyValues = realmObject.dictionaryWithValuesForKeys(
-            objectID.entity.realmObjectSchema.properties.map { $0.getterName }
+            objectID.entity.realmObjectSchema.properties
+                .filter { $0.objectClassName == nil }
+                .map { $0.getterName }
         )
         
         return NSIncrementalStoreNode(
@@ -171,8 +173,36 @@ public final class RealmIncrementalStore: NSIncrementalStore {
     
     public override func newValueForRelationship(relationship: NSRelationshipDescription, forObjectWithID objectID: NSManagedObjectID, withContext context: NSManagedObjectContext?) throws -> AnyObject {
         
-        // TODO:
-        fatalError()
+        guard let realmObject = objectID.realmObject(),
+            let destinationEntity = relationship.destinationEntity else {
+            
+                return NSNull()
+        }
+        
+        if relationship.toMany {
+            
+            if let relatedObjects = realmObject[relationship.name] as? RLMArray {
+                
+                return relatedObjects.flatMap {
+                    
+                    return self.newObjectIDForEntity(
+                        destinationEntity,
+                        referenceObject: $0.realmResourceID
+                    )
+                }
+            }
+        }
+        else {
+            
+            if let relatedObject = realmObject[relationship.name] as? RLMObject {
+                
+                return self.newObjectIDForEntity(
+                    destinationEntity,
+                    referenceObject: relatedObject.realmResourceID
+                )
+            }
+        }
+        return NSNull()
     }
     
     public override func obtainPermanentIDsForObjects(array: [NSManagedObject]) throws -> [NSManagedObjectID] {
@@ -207,10 +237,10 @@ public final class RealmIncrementalStore: NSIncrementalStore {
     private func createBackingClassesForModel(model: NSManagedObjectModel) -> RLMSchema {
         
         let metadataSchema = [RLMObjectSchema(forObjectClass: RealmIncrementalStoreMetadata.self)]
-        let entitiesSchema = model.entities.map { $0.loadRealmBackingTypeIfNeeded().objectSchema }
-        let relationshipsSchema = [RLMObjectSchema]() // TODO:
+        let entitiesSchema = model.entities.loadObjectSchemas()
+        
         let schema = RLMSchema()
-        schema.objectSchema = metadataSchema + entitiesSchema + relationshipsSchema
+        schema.objectSchema = metadataSchema + entitiesSchema
         return schema
     }
     

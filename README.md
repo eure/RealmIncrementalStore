@@ -56,7 +56,7 @@ Right now, most of Core Data's functionality works:
 ## Missing bits / To Do
 (Pull Requests are welcome!)
 
-- Relationships
+- Relationships (in progress, halfway there)
 - Migrations
 - Fine-grained handling of `NSFetchRequest`s
 - Optimizations (still waiting for the Realm folks to open-source the **realm-core**)

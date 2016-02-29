@@ -1,5 +1,5 @@
 //
-//  TestEntity+CoreDataProperties.swift
+//  TestAnotherEntity+CoreDataProperties.swift
 //  RealmIncrementalStoreDemo
 //
 //  Created by John Estropia on 2016/02/26.
@@ -12,12 +12,12 @@
 import Foundation
 import CoreData
 
-extension TestEntity {
+extension TestAnotherEntity {
 
     @NSManaged var dateField: NSDate?
     @NSManaged var intField: NSNumber?
     @NSManaged var sectionField: String?
     @NSManaged var stringField: String?
-    @NSManaged var anotherEntity: TestAnotherEntity?
+    @NSManaged var testEntities: NSSet?
 
 }

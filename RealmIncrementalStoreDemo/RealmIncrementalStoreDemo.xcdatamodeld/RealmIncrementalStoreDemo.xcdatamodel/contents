@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="TestAnotherEntity" representedClassName=".TestAnotherEntity" syncable="YES">
+        <attribute name="dateField" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="intField" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sectionField" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stringField" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="testEntities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TestEntity" inverseName="anotherEntity" inverseEntity="TestEntity" syncable="YES"/>
+    </entity>
     <entity name="TestEntity" representedClassName=".TestEntity" syncable="YES">
         <attribute name="dateField" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="intField" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="sectionField" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stringField" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="anotherEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TestAnotherEntity" inverseName="testEntities" inverseEntity="TestAnotherEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TestEntity" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="TestEntity" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="TestAnotherEntity" positionX="-63" positionY="9" width="128" height="120"/>
     </elements>
 </model>

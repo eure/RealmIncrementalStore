@@ -164,6 +164,12 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
                     insertIntoManagedObjectContext: context
                 )
                 object.randomize()
+                
+                let anotherObject = TestAnotherEntity(
+                    entity: entities["TestAnotherEntity"]!,
+                    insertIntoManagedObjectContext: context
+                )
+                object.anotherEntity = anotherObject
             }
         )
     }
