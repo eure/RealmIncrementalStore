@@ -50,13 +50,14 @@ Right now, most of Core Data's functionality works:
 - Inserting / Updating / Deleting
 - Fetching
 - `NSFetchedResultsController`s
+- Relationships
 - Basically most of what `NSIncrementalStore`s were designed to work in
 
 
 ## Missing bits / To Do
 (Pull Requests are welcome!)
 
-- Relationships (in progress, halfway there)
+- ~~Relationships (in progress, halfway there)~~ Done
 - Migrations
 - Fine-grained handling of `NSFetchRequest`s
 - Optimizations (still waiting for the Realm folks to open-source the **realm-core**)
